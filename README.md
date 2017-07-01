@@ -24,7 +24,7 @@ pypwaves depends on the following packages:
 * scipy
 
 The setup script is still under development, but assuming all dependencies are installed the library can be used
-by simply running the __basic.py__ script.
+by simply running the __base.py__ script.
 
 ## Use
 
@@ -84,7 +84,7 @@ pulses=  pulseWave.get_spatial_points(x,y,half_width)
 ### Deconvolution and Gaussian Decomposition
 
 This section of the code is still under development but it will essentially be a python implementation of the 
-Gold and Richard-Lucy deconvolution functions form the R package ['Peaks'](https://cran.r-project.org/web/packages/Peaks/Peaks.pdf).
+Gold and Richard-Lucy deconvolution functions from the R package ['Peaks'](https://cran.r-project.org/web/packages/Peaks/Peaks.pdf).
 
 Decomposition of the LiDAR waveform into a series of gaussian curves will be implemented using the Leven-Marquardt nonlinear least squares solver in
 scipy.
