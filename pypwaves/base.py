@@ -96,7 +96,7 @@ class PulseWaves(object):
         
         #check if pulse number if within range of expected number of pulse
         if pulse_number > self.num_pulses or pulse_number <0:
-            print "ERROR: Pulse number outside the range of expected values"
+            print ("ERROR: Pulse number outside the range of expected values")
             return
 
         #initialize pulse object
@@ -123,7 +123,7 @@ class PulseWaves(object):
         
         #if input is not a pulse record
         elif type(pulse_record).__name__ == "pulse":
-            print "Unrecognized pulse input type, enter pulse number or pulse record"
+            print ("Unrecognized pulse input type, enter pulse number or pulse record")
             return
 
         wave = Waves(self,pulse_record)
@@ -132,10 +132,10 @@ class PulseWaves(object):
         
     def print_table(self):
         for key, value in sorted(self.__dict__.iteritems()):
-            if type(value) <> dict:
-                print "{:<20} {:<15}".format(key, value)
+            if type(value) != dict:
+                print( "{:<20} {:<15}".format(key, value))
             elif type(value) == dict:
-                print "{:<20} {:<15}".format(key, value.keys())
+                print( "{:<20} {:<15}".format(key, value.keys()))
                 
                 
     def cycle_pulses(self, start, end):
@@ -144,7 +144,7 @@ class PulseWaves(object):
            :param end: Int, ending pulse number, default: last pulse
            """
         if start >= end:
-            print "ERROR: Starting pulse number greater than ending pulse number"
+            print ("ERROR: Starting pulse number greater than ending pulse number")
             return
         
         pulsebinary =  open(self.filename, 'rb')
@@ -162,7 +162,7 @@ class PulseWaves(object):
          
         spatial_index = index.Index(os.path.splitext(self.filename)[0])
          
-        print "Generating spatial index.....%s points...this may take a while...." % self.num_pulses
+        print ("Generating spatial index.....%s points...this may take a while...." % self.num_pulses)
          
         for pulse_record in self.cycle_pulses(0,self.num_pulses):           
             x_last = pulse_record.x_anchor + pulse_record.last_return * pulse_record.dx
@@ -176,7 +176,7 @@ class PulseWaves(object):
          
             #print status update
             if pulse_record.pulse_number in (np.linspace(0,1,11) * self.num_pulses).astype(int):
-                print "%s percent complete." % int(100*pulse_record.pulse_number/float(self.num_pulses))
+                print ("%s percent complete." % int(100*pulse_record.pulse_number/float(self.num_pulses)))
          
         spatial_index.close() 
 
@@ -189,7 +189,7 @@ class PulseWaves(object):
         """
                 
         if not os.path.isfile(os.path.splitext(self.filename)[0] + ".idx"):
-            print "Spatial index not found!!!"
+            print ("Spatial index not found!!!")
             return 
 
         
@@ -251,10 +251,10 @@ class PulseRecord(object):
 
     def print_table(self):
         for key, value in sorted(self.__dict__.iteritems()):
-            if type(value) <> dict:
-                print "{:<20} {:<15}".format(key, value)
+            if type(value) != dict:
+                print ("{:<20} {:<15}".format(key, value))
             elif type(value) == dict:
-                print "{:<20} {:<15}".format(key, value.keys())
+                print ("{:<20} {:<15}".format(key, value.keys()))
           
         
 class Waves(object):
@@ -345,10 +345,10 @@ class Waves(object):
         
     def print_table(self):
         for key, value in sorted(self.__dict__.iteritems()):
-            if type(value) <> dict:
-                print "{:<20} {:<15}".format(key, value)
+            if type(value) != dict:
+                print ("{:<20} {:<15}".format(key, value))
             elif type(value) == dict:
-                print "{:<20} {:<15}".format(key, value.keys())
+                print ("{:<20} {:<15}".format(key, value.keys()))
         
 
 class VLR(object):
@@ -363,10 +363,10 @@ class VLR(object):
 
     def print_table(self):
         for key, value in sorted(self.__dict__.iteritems()):
-            if type(value) <> dict:
-                print "{:<20} {:<15}".format(key, value)
+            if type(value) != dict:
+                print ("{:<20} {:<15}".format(key, value))
             elif type(value) == dict:
-                print "{:<20} {:<15}".format(key, value.keys())
+                print ("{:<20} {:<15}".format(key, value.keys()))
 
 class Scanner(object):
     
@@ -391,10 +391,10 @@ class Scanner(object):
 
     def print_table(self):
         for key, value in sorted(self.__dict__.iteritems()):
-            if type(value) <> dict:
-                print "{:<20} {:<15}".format(key, value)
+            if type(value) != dict:
+                print ("{:<20} {:<15}".format(key, value))
             elif type(value) == dict:
-                print "{:<20} {:<15}".format(key, value.keys())
+                print ("{:<20} {:<15}".format(key, value.keys()))
                 
 class SamplingRecord(object):
     
@@ -424,10 +424,10 @@ class SamplingRecord(object):
 
     def print_table(self):
         for key, value in sorted(self.__dict__.iteritems()):
-            if type(value) <> dict:
-                print "{:<20} {:<15}".format(key, value)
+            if type(value) != dict:
+                print ("{:<20} {:<15}".format(key, value))
             elif type(value) == dict:
-                print "{:<20} {:<15}".format(key, value.keys())
+                print ("{:<20} {:<15}".format(key, value.keys()))
 
 class PulseDecriptor(object):
 
@@ -445,14 +445,17 @@ class PulseDecriptor(object):
 
     def print_table(self):
         for key, value in sorted(self.__dict__.iteritems()):
-            if type(value) <> dict:
-                print "{:<20} {:<15}".format(key, value)
+            if type(value) != dict:
+                print ("{:<20} {:<15}".format(key, value))
             elif type(value) == dict:
-                print "{:<20} {:<15}".format(key, value.keys())
+                print ("{:<20} {:<15}".format(key, value.keys()))
         
 
 
 
+    
+    
+    
     
     
     
